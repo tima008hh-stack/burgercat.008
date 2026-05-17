@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Сок мультифрукт детский - BurgerCat</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <main class="product-page">
+        <img src="../img/sok.jpg" alt="Сок мультифрукт">
+        <h1>Сок мультифрукт детский</h1>
+        <div class="product-price">Цена: 40 руб.</div>
+        <div class="product-desc">
+            <strong>Описание:</strong> Натуральный и полезный детский сок. Яркий микс спелого банана, ананаса, сочного апельсина и киви. Без добавления сахара!
+        </div>
+        <button class="bth buy-btn" data-name="Сок мультифрукт детский" data-price="40" data-img="img/sok.jpg">Купить</button>
+        <br><a href="../index.html" class="back-to-shop">⬅ Вернуться в магазин</a>
+    </main>
+    <script>
+        var buyButton = document.querySelector('.buy-btn');
+        if (buyButton) {
+            buyButton.addEventListener('click', function() {
+                var cart = JSON.parse(localStorage.getItem('burgerCart')) || [];
+                var name = buyButton.getAttribute('data-name');
+                var price = parseInt(buyButton.getAttribute('data-price'), 10);
+                var img = buyButton.getAttribute('data-img');
+                var existingItem = cart.find(function(item) { return item.name === name; });
+                if (existingItem) { existingItem.quantity += 1; } else { cart.push({ name: name, price: price, img: img, quantity: 1 }); }
+                localStorage.setItem('burgerCart', JSON.stringify(cart));
+                alert('Товар "' + name + '" добавлен в корзину!');
+            });
+        }
+    </script>
+</body>
+</html>

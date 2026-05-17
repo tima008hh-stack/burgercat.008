@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Вода.газ - BurgerCat</title>
+    <!-- Подключаем стили из папки выше -->
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+    <main class="product-page">
+        <!-- Картинка товара из каталога -->
+        <img src="../img/ok.jpg" alt="Вода.газ">
+        
+        <h1>Вода.газ</h1>
+        
+        <div class="product-price">Цена: 35 руб.</div>
+        
+        <div class="product-desc">
+            <strong>Описание товара:</strong><br>
+            Самая обычная газированная вода. В составе только чистая питьевая вода и кислородный газ. Отлично освежает в жару и утоляет жажду после плотного обеда!
+            <br><br>
+            <strong>Объем:</strong> 0.5 литра<br>
+            <strong>Степень газации:</strong> Сильногазированная
+        </div>
+
+        <!-- Кнопка "Купить" -->
+        <button class="bth buy-btn" data-name="Вода.газ" data-price="35" data-img="img/ok.jpg">Купить</button>
+        
+        <br>
+        <a href="../index.html" class="back-to-shop">⬅ Вернуться в магазин</a>
+    </main>
+
+    <!-- Скрипт добавления в корзину без стрелочных функций -->
+    <script>
+        var buyButton = document.querySelector('.buy-btn');
+        if (buyButton) {
+            buyButton.addEventListener('click', function() {
+                var cart = JSON.parse(localStorage.getItem('burgerCart')) || [];
+                var name = buyButton.getAttribute('data-name');
+                var price = parseInt(buyButton.getAttribute('data-price'), 10);
+                var img = buyButton.getAttribute('data-img');
+
+                var existingItem = cart.find(function(item) { return item.name === name; });
+
+                if (existingItem) {
+                    existingItem.quantity += 1;
+                } else {
+                    cart.push({ name: name, price: price, img: img, quantity: 1 });
+                }
+
+                localStorage.setItem('burgerCart', JSON.stringify(cart));
+                alert('Товар "' + name + '" добавлен в корзину!');
+            });
+        }
+    </script>
+</body>
+</html>

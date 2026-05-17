@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Онлайн магазин BurgerCat</title>
+    <link rel="stylesheet" href="style.css" />
+    <style>
+        /* Стили для уведомления */
+        .notification {
+            position: fixed;
+            bottom: -100px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #3305db;
+            color: rgb(49, 49, 49);
+            padding: 15px 30px;
+            border-radius: 50px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            font-family: sans-serif;
+            font-weight: bold;
+            z-index: 9999;
+            transition: bottom 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+        }
+
+        .notification.show {
+            bottom: 40px;
+        }
+
+        /* Стиль для поля ввода поиска */
+        .search-container {
+            margin: 20px auto;
+            max-width: 500px;
+            padding: 0 15px;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 12px 20px;
+            font-size: 16px;
+            border: 2px solid rgb(0, 0, 0);
+            border-radius: 50px;
+            box-sizing: border-box;
+            outline: none;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <img src="img/logo.png" alt="Логотип" />
+        <h1>Burgercat онлайн магазин</h1>
+        <!-- Ссылка на страницу корзины -->
+        <a href="cart.html" class="cart-link">🛒 Корзина (<span id="cart-count">0</span>)</a>
+    </header>
+
+    <main>
+        <!-- Поле живого поиска товаров -->
+        <div class="search-container">
+            <input type="text" id="search-goods" class="search-input" placeholder="🔍 Найти подходящий пк или комплектующие...">
+        </div>
+
+        <section>
+            <h2>Готовые ПК</h2>
+            <p>Выберите что-нибудь, для покупки нажмите "Купить"</p>
+        </section>
+
+        <div class="cardr">
+            <div class="card">
+                <img src="img/пк1.png" alt="Кл" />
+                <h3>Mega Spydragon</h3>
+                <p>Если вы хотите купить супер мощный компьютер, в стильном корпусе и настраиваемой RGB подсветкой, топовым FPS, к тому же с очень низким уровнем шума, тогда Mega Spydragon, именно эта модель подойдет под данные запросы идеально.</p>
+                <p><strong>Цена:120000руб</strong></p>
+                <button class="bth buy-btn" data-name="Mega Spydragon" data-price="120000" data-img="img/пк1.png">Купить</button>
+                <a href="Подробнее/бургер.html" class="more-btn"></a>
+            </div>
+            <div class="card">
+                <img src="img/пк5.png" alt="SPY KING" />
+                <h3>Spy King</h3>
+                <p>Яркий представитель серии игровых ПК за приемлемый бюджет. Строгий черный корпус с подсветкой для консервативных пользователей, а вот начинка прогрессивная и задаст жару вашим виртуальным противника.. Системный блок для игр и учебы.</p>
+                <p><strong>Цена:90800руб</strong></p>
+                <button class="bth buy-btn" data-name="Spy King" data-price="90800" data-img="img/пк5.png">Купить</button>
+                <a href="Подробнее/чизбургер.html" class="more-btn"></a>
+            </div>
+            <div class="card">
+                <img src="img/пк3.png" alt="er" />
+                <h3>Spy Core 2</h3>
+                <p>Демократичная стоимость игрового компьютера Spy Core 2 позволяет запускать любые современные игры на высоком уровне качества графических настроек, стильный дизайн так же не оставит пользователя равнодушным.</p>
+                <p><strong>Цена:81900руб</strong></p>
+                <button class="bth buy-btn" data-name="Spy Core 2" data-price="81900" data-img="img/пк3.png">Купить</button>
+                <a href="Подробнее/нагетсы.html" class="more-btn"></a>
+            </div>
+            <div class="card">
+                <img src="img/пк4.png" alt="ew" />
+                <h3>Spy MegaCore</h3>
+                <p>Настоящий геймерский компьютер с соответствующим названием Spy MegaCore. Суровый, "бандитский" комп для игр, работы и учёбы. Интересный дизайн, RGB подсветка на передней панели, крутая начинка, профессиональная сборка и настройка.</p>
+                <p><strong>Цена:90000руб</strong></p>
+                <button class="bth buy-btn" data-name="Spy MegaCore" data-price="90000" data-img="img/пк4.png">Купить</button>
+                <a href="Подробнее/картошка.html" class="more-btn"></a>
+            </div>
+            <div class="card">
+                <img src="img/пк2.png" alt="e" />
+                <h3>Spy MegaCore 2</h3>
+                <p>Игровой компьютер последнего поколения Spy MegaCore2, топовый процессор intel i5 в связке с большим объёмом памяти и быстрым SSD накопителем, обеспечивают беспрецедентную производительность на высоких настройках графики и достойный показатель FPS.  </p>
+                <p><strong>Цена:139900руб</strong></p>
+                <button class="bth buy-btn" data-name="Spy MegaCore 2" data-price="139900" data-img="img/пк2.png">Купить</button>
+                <a href="Подробнее/картошка.html" class="more-btn"></a>
+            </div>
+            <div class="card">
+                <img src="img/пк6.png" alt="К" />
+                <h3>Spy Core 3</h3>
+                <p>Игровой компьютер Spy Core 3, собран в белом цвете, на последнем процессоре 5 го поколения Intel. Машина укомплектована видеокартой 5 го поколения от Nviida, показывает высокие значения FPS, оптимизирована для современных игровых приложений.</p>
+                <p><strong>Цена:130000руб</strong></p>
+                <button class="bth buy-btn" data-name="Spy Core 3" data-price="130000" data-img="img/пк6.png">Купить</button>
+                <a href="Подробнее/картошка.html" class="more-btn"></a>
+            </div>
+        </div>
+        <h2>Мониторы</h2>
+        <div class="cardr">
+            <div class="card">
+                <img src="img/моник1.webp" alt="Сок" />
+                <h3>4K монитор Gigabyte MO32U24</h3>
+                <p></p>
+                <p><strong>Цена:42700руб</strong></p>
+                <button class="bth buy-btn" data-name="4K монитор Gigabyte MO32U24" data-price="42700" data-img="img/моник1.webp">Купить</button>
+                <a href="Подробнее/сок.html" class="more-btn"></a>
+            </div>
+            <div class="card">
+                <img src="img/азуз.webp" alt="Cola" />
+                <h3>WQHD монитор ASUS ROG Strix OLED XG27AQDPG</h3>
+                <p></p>
+                <p><strong>Цена:90805руб</strong></p>
+                <button class="bth buy-btn" data-name="WQHD монитор ASUS ROG Strix OLED XG27AQDPG" data-price="90805" data-img="img/азуз.webp">Купить</button>
+                <a href="Подробнее/cola.html" class="more-btn"></a>
+            </div>
+            <div class="card">
+                <img src="img/sps.webp" alt="s" />
+                <h3>4K монитор ASUS ROG Strix XG27UCDMG</h3>
+                <p></p>
+                <p><strong>Цена:69990руб</strong></p>
+                <button class="bth buy-btn" data-name="sps.webp" data-price="69990" data-img="img/ok.jpg">Купить</button>
+                <a href="Подробнее/vodagaz.html" class="more-btn"></a>
+            </div>
+        </div>
+        <section id="contact">
+            <h2>Контакты</h2>
+            <h4>Телефон: 010-683-639</h4>
+        </section>
+    </main>
+
+    <footer>
+        <p>2026 Try,think,do(ttd.co) Все права защищены</p>
+    </footer>
+
+    <div id="notification" class="notification">Товар добавлен в корзину! ✔️🍔</div>
+
+    <script>
+        const buyButtons = document.querySelectorAll('.buy-btn');
+        const notification = document.getElementById('notification');
+        const cartCount = document.getElementById('cart-count');
+
+        let cart = JSON.parse(localStorage.getItem('burgerCart')) || [];
+
+        function updateCartCount() {
+            let totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+            cartCount.textContent = totalItems;
+        }
+        updateCartCount();
+
+        buyButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const name = button.getAttribute('data-name');
+                const price = parseInt(button.getAttribute('data-price'));
+                const img = button.getAttribute('data-img');
+
+                const existingItem = cart.find(item => item.name === name);
+
+                if (existingItem) {
+                    existingItem.quantity += 1;
+                } else {
+                    cart.push({ name, price, img, quantity: 1 });
+                }
+
+                localStorage.setItem('burgerCart', JSON.stringify(cart));
+                updateCartCount();
+
+                notification.classList.add('show');
+                setTimeout(() => {
+                    notification.classList.remove('show');
+                }, 2500);
+            });
+        });
+    </script>
+    <!-- Новый файл для логики поиска -->
+    <script src="search.js"></script>
+</body>
+
+</html>

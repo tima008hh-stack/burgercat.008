@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Кола Добрая 1л - BurgerCat</title>
+    <!-- Подключаем стили из папки выше -->
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+    <main class="product-page">
+        <!-- Картинка товара (путь ведет в папку img на уровень выше) -->
+        <img src="../img/cola.png" alt="Кола Добрая 1л">
+        
+        <h1>Кола Добрая 1л</h1>
+        
+        <div class="product-price">Цена: 199 руб.</div>
+        
+        <div class="product-desc">
+            <strong>Описание товара:</strong><br>
+            Кока-Кола очень вкусная, но сильно газированная. Прекрасно освежает и идеально подходит к любому бургеру или порции горячих хрустящих наггетсов!
+            <br><br>
+            <strong>Объем:</strong> 1 литр<br>
+            <strong>Условия хранения:</strong> Хранить при температуре от 0°C до +25°C.
+        </div>
+
+        <!-- Рабочая кнопка "Купить" -->
+        <button class="bth buy-btn" data-name="Кола Добрая 1л" data-price="199" data-img="img/cola.png">Купить</button>
+        
+        <br>
+        <a href="../index.html" class="back-to-shop">⬅ Вернуться в магазин</a>
+    </main>
+
+    <!-- Скрипт для добавления в корзину прямо отсюда -->
+    <script>
+        var buyButton = document.querySelector('.buy-btn');
+        if (buyButton) {
+            buyButton.addEventListener('click', function() {
+                var cart = JSON.parse(localStorage.getItem('burgerCart')) || [];
+                var name = buyButton.getAttribute('data-name');
+                var price = parseInt(buyButton.getAttribute('data-price'), 10);
+                var img = buyButton.getAttribute('data-img');
+
+                var existingItem = cart.find(function(item) { return item.name === name; });
+
+                if (existingItem) {
+                    existingItem.quantity += 1;
+                } else {
+                    cart.push({ name: name, price: price, img: img, quantity: 1 });
+                }
+
+                localStorage.setItem('burgerCart', JSON.stringify(cart));
+                alert('Товар "' + name + '" добавлен в корзину!');
+            });
+        }
+    </script>
+</body>
+</html>
+<!--Мне помогает ИИ -->

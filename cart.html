@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Корзина - BurgerCat</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Стили для изменения цвета текста на белый */
+        body {
+            background-color: #1a1a1a; /* Темный фон, чтобы белый текст был виден */
+            color: #ffffff;
+            font-family: Arial, sans-serif;
+        }
+
+        .back-link, .cart-container h2, .cart-container h3, .total-price {
+            color: #ffffff;
+        }
+
+        .back-link {
+            text-decoration: none;
+        }
+
+        /* Стили для полей ввода, чтобы текст внутри них оставался читаемым */
+        .order-form input {
+            color: #000000; /* Черный текст внутри полей */
+            background-color: #ffffff; /* Белый фон полей */
+            padding: 8px;
+            margin: 5px 0;
+            display: block;
+            width: 100%;
+            max-width: 300px;
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+<body>
+
+    <main class="cart-container">
+        <a href="index.html" class="back-link">⬅️ Вернуться к покупкам</a>
+        <h2>Ваша корзина</h2>
+        
+        <div id="cart-wrapper"></div>
+
+        <div class="total-price">Итого: <span id="total-sum">0</span> руб.</div>
+
+        <div class="order-form">
+            <h3>Оформление заказа</h3>
+            <form id="checkout-form">
+                <input type="text" id="user-name" placeholder="Ваше имя" required>
+                <input type="tel" id="user-phone" placeholder="Телефон для связи" required>
+                <input type="text" id="user-address" placeholder="Адрес доставки" required>
+                <button type="submit" class="submit-btn">Оформить заказ</button>
+            </form>
+        </div>
+    </main>
+
+    <!-- Подключаем внешний файл со скриптами -->
+    <script src="cart.js"></script>
+</body>
+</html>
